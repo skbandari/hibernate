@@ -27,7 +27,7 @@ public class ProductDAO {
 
     @Transactional(readOnly = false)
     public void add(Product product) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         session.save(product); //does not result in insert until tx is committed
         //JPA Version
         //session.persist(product);
